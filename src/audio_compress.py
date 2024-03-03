@@ -4,10 +4,9 @@ import os
 import tempfile
 import click
 import shutil
-import subprocess
 
 from utilities.dependency import check_dependencies
-from utilities.prompt import select_from_list, exit_with_message, ask_number
+from utilities.prompt import ask_file, select_from_list, exit_with_message, ask_number
 
 
 signal.signal(signal.SIGINT, signal.SIG_DFL)
@@ -87,33 +86,13 @@ def exec(original_file_path: str, bit: str, max_mb: int):
     convert_part_to_mp3(temp_dir, file_name_without_ext)
 
 
-def get_full_path(file: str) -> str:
-    return os.path.abspath(file)
-
-
-def select_files() -> list[str]:
-    cmd = """fd -t f -d 1 -e mp3 -e ogg | fzf --multi"""
-    process = subprocess.Popen(cmd,
-                               shell=True,
-                               stdout=subprocess.PIPE,)
-
-    stdout, stderr = process.communicate()
-    output = stdout.decode("utf-8").strip()
-
-    files_with_full_path = list(
-        map(lambda f: get_full_path(f), output.split("\n")))
-    files_with_full_path = list(
-        filter(lambda f: os.path.isfile(f), files_with_full_path))
-    return files_with_full_path
-
-
 @click.command()
 @click.argument('files', required=False, nargs=-1, type=click.Path(exists=True))
 def main(files: str):
     selected_files = list(files)
 
     if not selected_files:
-        selected_files = select_files()
+        selected_files = ask_file(".", "fd | fzf")
 
     if not selected_files:
         exit_with_message("You didn't select any files")
