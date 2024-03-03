@@ -1,0 +1,5 @@
+#!/bin/sh
+
+BASEDIR=$(dirname "$0")
+SCRIPT="audio_compress.py"
+python3 -B "$BASEDIR"/../src/"$SCRIPT" "$@"
