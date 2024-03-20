@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Required parameters:
+# @raycast.schemaVersion 1
+# @raycast.title Generate Random Joke
+# @raycast.mode fullOutput
+
+# Optional parameters:
+# @raycast.icon 🃏
+# @raycast.needsConfirmation false
+
+# Documentation:
+# @raycast.description Generate a random dad joke
+# @raycast.author tahsin
+# @raycast.authorURL https://raycast.com/tahsin
+
+BASEDIR=$(dirname "$0")
+SCRIPT="remind.py"
+python3 -B "$BASEDIR"/../src/"$SCRIPT" "$@"
