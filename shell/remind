@@ -2,18 +2,20 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title Generate Random Joke
-# @raycast.mode fullOutput
+# @raycast.title Remind
+# @raycast.mode silent
 
 # Optional parameters:
-# @raycast.icon 🃏
-# @raycast.needsConfirmation false
+# @raycast.icon ⏲️
+# @raycast.argument1 { "type": "text", "placeholder": "text" }
 
 # Documentation:
-# @raycast.description Generate a random dad joke
+# @raycast.description Remind yourself with a simple message
 # @raycast.author tahsin
 # @raycast.authorURL https://raycast.com/tahsin
 
 BASEDIR=$(dirname "$0")
 SCRIPT="remind.py"
+# shellcheck source=/dev/null
+. ~/.commonrc
 python3 -B "$BASEDIR"/../src/"$SCRIPT" "$@"
