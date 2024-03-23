@@ -1,4 +1,5 @@
 import logging
+from typing import List
 
 
 def display_code_via_panel(code: str):
@@ -17,10 +18,12 @@ def gen_unique_id():
 class Log:
 
     def __init__(self, file_name: str):
-        self.group_logs = []
+        self.__group_logs: List[str] = []
         logger_name = f"logger-{gen_unique_id()}"
         logger = logging.getLogger(logger_name)
-        self.file_name = file_name
+        if not file_name.endswith(".log"):
+            file_name += ".log"
+
         file_path = f"logs/{file_name}"
         format = """========== 🆕 %(asctime)s 🆕 ==========
 %(message)s
@@ -35,8 +38,8 @@ class Log:
         self.logger.debug(message)
 
     def group(self, message: str):
-        self.group_logs.append(message)
+        self.__group_logs.append(message)
 
     def end_group(self):
-        msg = "\n".join(self.group_logs)
+        msg = "\n".join(self.__group_logs)
         self.logger.debug(msg)
