@@ -1,28 +1,24 @@
-name: Python Unit Tests
+name: Python Package using Conda
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+on: [push]
 
 jobs:
-  test:
+  build-linux:
     runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 5
+      matrix:
+        python-version: [3.10]
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
         with:
-          python-version: 3.x
-
+          python-version: "3.10"
       - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Run unit tests
-        run: make test
+        run: |
+          pip3 install -r requirements.txt
+      - name: Test with make test
+        run: |
+          make test
