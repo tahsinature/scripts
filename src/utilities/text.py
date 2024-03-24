@@ -1,3 +1,6 @@
+from typing import List
+
+
 def get_env_key_value(line: str):
     line = line.strip()
     if not line:
@@ -20,16 +23,17 @@ def get_env_key_value(line: str):
 
 def get_env_vars_from_lines(lines: str) -> dict:
     env_vars = {}
+    lines_array: List[str] = []
 
     try:
         if "\n" in lines:
-            lines = lines.split("\n")
+            lines_array = lines.split("\n")
         elif ";" in lines:
-            lines = lines.split(";")
+            lines_array = lines.split(";")
         else:
-            lines = lines.split("export")
+            lines_array = lines.split("export")
 
-        for line in lines:
+        for line in list(filter(lambda l: l.strip(), lines_array)):
             key, value = get_env_key_value(line.strip())
             env_vars[key] = value
     except Exception as e:
