@@ -1,4 +1,5 @@
 import json
+import sys
 import click
 
 from utilities.datetime import calculate_time, convert_to_different_tz
@@ -34,7 +35,6 @@ log = Log("remind")
 def exec(input: str):
     log.group(f"input: {input}")
     res = ask_gpt_3_with_chat_completions(system_prompt, input, "json")
-    print(res)
     log.group(f"api_res: {res}")
 
     if res and type(res) == str:
@@ -62,7 +62,7 @@ def exec(input: str):
         log.group(f"output: {output}")
         print(output)
     else:
-        raise Exception("Invalid response from GPT-3")
+        log.group("not res and type(res) == str")
 
     log.end_group()
 

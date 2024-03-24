@@ -1,5 +1,4 @@
 test:
-	python3 -Bm unittest && \
 	python3 -Bm unittest
 
 check: # dependency check
