@@ -81,3 +81,7 @@ def ask_file(path: str, program: Optional[str] = None):
         exit_with_message("No files selected")
 
     return files
+
+
+def ask_confirmation(message: str):
+    return prompt.Confirm.ask(message)
