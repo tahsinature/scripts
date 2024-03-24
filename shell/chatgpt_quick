@@ -1,0 +1,26 @@
+#!/bin/sh -l
+
+# Required parameters:
+# @raycast.schemaVersion 1
+# @raycast.title Quick Question
+# @raycast.mode fullOutput
+
+# Optional parameters:
+# @raycast.icon https://openai.com/favicon.ico
+# @raycast.packageName ChatGPT
+# @raycast.argument1 { "type": "text", "placeholder": "Question?" }
+
+# Documentation:
+# @raycast.author tahsin
+# @raycast.authorURL https://raycast.com/tahsin
+
+BASEDIR=$(dirname "$0")
+SCRIPT="chatgpt_quick.py"
+# shellcheck source=/dev/null
+. ~/.commonrc
+
+if [ -z "$*" ]; then
+    python3 -B "$BASEDIR"/../src/"$SCRIPT"
+else
+    python3 -B "$BASEDIR"/../src/"$SCRIPT" --question "$@"
+fi
