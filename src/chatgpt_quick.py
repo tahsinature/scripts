@@ -1,4 +1,5 @@
 import click
+from utilities.log import display_markdown
 from utilities.openai import ask_gpt_3_with_chat_completions
 
 
@@ -11,7 +12,10 @@ You are a helpful assistant designed to output plain text.
 """
         response = ask_gpt_3_with_chat_completions(
             system_message, question)
-        print(response)
+        if response and type(response) == str:
+            display_markdown(response)
+        else:
+            print("error in logic: response and type(response) == str:")
 
     except Exception as e:
         print(e)

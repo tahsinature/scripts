@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title Quick Question
+# @raycast.title Ask Quick Question
 # @raycast.mode fullOutput
 
 # Optional parameters:
