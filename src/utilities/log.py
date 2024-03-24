@@ -1,5 +1,7 @@
 import logging
+from os import path
 from typing import List
+from utilities.config import log_dir
 
 
 def display_code_via_panel(code: str):
@@ -8,6 +10,14 @@ def display_code_via_panel(code: str):
 
     console = Console()
     console.print(Panel(code, title="Content"))
+
+
+def display_markdown(markdown: str):
+    from rich.markdown import Markdown
+    from rich.console import Console
+
+    console = Console()
+    console.print(Markdown(markdown))
 
 
 def gen_unique_id():
@@ -24,7 +34,7 @@ class Log:
         if not file_name.endswith(".log"):
             file_name += ".log"
 
-        file_path = f"logs/{file_name}"
+        file_path = path.join(log_dir, file_name)
         format = """========== 🆕 %(asctime)s 🆕 ==========
 %(message)s
 ========== 🔚 %(asctime)s 🔚 =========="""
