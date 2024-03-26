@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Required parameters:
+# @raycast.schemaVersion 1
+# @raycast.title Generate Unique Email
+# @raycast.mode fullOutput
+
+# Optional parameters:
+# @raycast.icon 📥
+# @raycast.argument1 { "type": "text", "placeholder": "Your Name", "optional": true }
+# @raycast.argument2 { "type": "text", "placeholder": "Domain. maildrop.cc", "optional": true }
+# @raycast.packageName Developer Utils
+
+# Documentation:
+# @raycast.description It will generate an unique email
+# @raycast.author tahsin
+# @raycast.authorURL https://raycast.com/tahsin
+
+BASEDIR=$(dirname "$0")
+SCRIPT="generate_unique_email.py"
+python3 -B "$BASEDIR"/../src/"$SCRIPT" "$@"
