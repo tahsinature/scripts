@@ -1,0 +1,22 @@
+#!/bin/sh -l
+
+# Required parameters:
+# @raycast.schemaVersion 1
+# @raycast.title Get git branch name
+# @raycast.mode fullOutput
+
+# Optional parameters:
+# @raycast.icon https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png
+# @raycast.argument1 { "type": "text", "placeholder": "Task ID", "optional": true }
+# @raycast.argument2 { "type": "text", "placeholder": "Title" }
+
+# Documentation:
+# @raycast.author tahsin
+# @raycast.authorURL https://raycast.com/tahsin
+
+
+BASEDIR=$(dirname "$0")
+SCRIPT="get_git_branch_name.py"
+# shellcheck source=/dev/null
+. ~/.commonrc
+python3 -B "$BASEDIR"/../src/"$SCRIPT" "$@"
