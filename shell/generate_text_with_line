@@ -1,0 +1,15 @@
+#!/Users/mohammadtahsin/.bun/bin/bun
+
+// Required parameters:
+// @raycast.schemaVersion 1
+// @raycast.title Generate Text With Line
+// @raycast.mode fullOutput
+
+// Optional parameters:
+// @raycast.icon ⌨️
+// @raycast.argument1 { "type": "text", "placeholder": "How many times?" }
+// @raycast.argument2 { "type": "text", "placeholder": "What text?" }
+
+import { runLogin, runNonLogin } from "./0";
+
+await runNonLogin("generate_text_with_line.py");

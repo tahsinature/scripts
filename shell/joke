@@ -2,13 +2,13 @@
 
 // Required parameters:
 // @raycast.schemaVersion 1
-// @raycast.title Remind
+// @raycast.title Generate Random Joke
 // @raycast.mode fullOutput
 
 // Optional parameters:
-// @raycast.icon ⏲️
-// @raycast.argument1 { "type": "text", "placeholder": "text" }
+// @raycast.icon 🃏
+// @raycast.needsConfirmation false
 
 import { runLogin, runNonLogin } from "./0";
 
-runLogin("remind.py");
+await runNonLogin("joke.py");

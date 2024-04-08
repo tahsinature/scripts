@@ -1,0 +1,14 @@
+#!/Users/mohammadtahsin/.bun/bin/bun
+
+// Required parameters:
+// @raycast.schemaVersion 1
+// @raycast.title Unix Env to Jetbrain Env
+// @raycast.mode compact
+
+// Optional parameters:
+// @raycast.icon https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png
+// @raycast.packageName Env to Jetbrain env
+// @raycast.argument1 { "type": "text", "placeholder": "String" }
+
+import { runLogin, runNonLogin } from "./0";
+await runNonLogin("env_to_jetbrain_env.py");

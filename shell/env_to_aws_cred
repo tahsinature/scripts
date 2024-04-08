@@ -1,0 +1,14 @@
+#!/Users/mohammadtahsin/.bun/bin/bun
+
+// Required parameters:
+// @raycast.schemaVersion 1
+// @raycast.title Env to AWS Credential File
+// @raycast.mode fullOutput
+
+// @raycast.icon https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1280px-Amazon_Web_Services_Logo.svg.png
+// @raycast.needsConfirmation false
+// @raycast.argument1 { "type": "text", "placeholder": "String" }
+
+import { runLogin, runNonLogin } from "./0";
+
+await runNonLogin("env_to_aws_cred.py");

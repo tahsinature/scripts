@@ -1,0 +1,13 @@
+#!/Users/mohammadtahsin/.bun/bin/bun
+
+// Required parameters:
+// @raycast.schemaVersion 1
+// @raycast.title Kill port
+// @raycast.mode compact
+
+// Optional parameters:
+// @raycast.icon 🔫
+// @raycast.argument1 { "type": "text", "placeholder": "Port number" }
+
+import { runLogin, runNonLogin } from "./0";
+await runNonLogin("kill_process_by_port.py");

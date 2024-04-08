@@ -1,0 +1,5 @@
+#!/Users/mohammadtahsin/.bun/bin/bun
+
+import { runNonLogin } from "./0";
+
+await runNonLogin("watch.py");

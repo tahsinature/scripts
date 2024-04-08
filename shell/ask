@@ -1,26 +1,35 @@
-#!/bin/sh -l
+#!/Users/mohammadtahsin/.bun/bin/bun
 
-# Required parameters:
-# @raycast.schemaVersion 1
-# @raycast.title Ask Quick Question
-# @raycast.mode fullOutput
+// Required parameters:
+// @raycast.schemaVersion 1
+// @raycast.title Ask Quick Question
+// @raycast.mode fullOutput
 
-# Optional parameters:
-# @raycast.icon https://openai.com/favicon.ico
-# @raycast.packageName ChatGPT
-# @raycast.argument1 { "type": "text", "placeholder": "Question?" }
+// Optional parameters:
+// @raycast.icon https://openai.com/favicon.ico
+// @raycast.packageName ChatGPT
+// @raycast.argument1 { "type": "text", "placeholder": "Question?" }
 
-# Documentation:
-# @raycast.author tahsin
-# @raycast.authorURL https://raycast.com/tahsin
+// if [ -z "$*" ]; then
+//     python3 -B "$BASEDIR"/../src/"$SCRIPT"
+// else
+//     python3 -B "$BASEDIR"/../src/"$SCRIPT" --question "$@"
+// fi
 
-BASEDIR=$(dirname "$0")
-SCRIPT="chatgpt_quick.py"
-# shellcheck source=/dev/null
-. ~/.commonrc
+// "0" "ask.py" --question "$1" --login-shell
 
-if [ -z "$*" ]; then
-    python3 -B "$BASEDIR"/../src/"$SCRIPT"
-else
-    python3 -B "$BASEDIR"/../src/"$SCRIPT" --question "$@"
-fi
+// Required parameters:
+// @raycast.schemaVersion 1
+// @raycast.title Spell Number
+// @raycast.mode fullOutput
+
+// Optional parameters:
+// @raycast.icon #
+// @raycast.argument1 { "type": "text", "placeholder": "Number?" }
+
+// ask.sh in current dir
+// BASEDIR=$(dirname "$0")
+
+import { runLogin, runNonLogin } from "./0";
+
+await runLogin("ask.py");

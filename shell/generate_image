@@ -15,3 +15,5 @@
 import { runLogin, runNonLogin } from "./0";
 
 await runNonLogin("spell_num.py");
+
+# draft_generate_image.py

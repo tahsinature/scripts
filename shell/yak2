@@ -1,0 +1,12 @@
+#!/Users/mohammadtahsin/.bun/bin/bun
+
+// Required parameters:
+// @raycast.schemaVersion 1
+// @raycast.title YAK2
+// @raycast.mode fullOutput
+// @raycast.argument1 {"type":"dropdown", "placeholder": "environment", "data":[{"title":"cxd-dev","value":"cxd-dev"},{"title":"cxd-staging","value":"cxd-staging"},{"title":"cxd-prod","value":"cxd-prod"}]}
+// @raycast.argument2 {"type":"dropdown", "placeholder": "output", "data":[{"title":"jetbrain","value":"jetbrain"},{"title":"unix-export","value":"unix-export"},{"title":"aws-cred-file","value":"aws-cred-file"}]}
+
+import { runLogin, runNonLogin } from "./0";
+
+await runLogin("yak2.py");

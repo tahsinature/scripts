@@ -1,22 +1,15 @@
-#!/bin/sh -l
+#!/Users/mohammadtahsin/.bun/bin/bun
 
-# Required parameters:
-# @raycast.schemaVersion 1
-# @raycast.title Get git branch name
-# @raycast.mode fullOutput
+// Required parameters:
+// @raycast.schemaVersion 1
+// @raycast.title Get git branch name
+// @raycast.mode fullOutput
 
-# Optional parameters:
-# @raycast.icon https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png
-# @raycast.argument1 { "type": "text", "placeholder": "Task ID", "optional": true }
-# @raycast.argument2 { "type": "text", "placeholder": "Title" }
+// Optional parameters:
+// @raycast.icon https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png
+// @raycast.argument1 { "type": "text", "placeholder": "Task ID", "optional": true }
+// @raycast.argument2 { "type": "text", "placeholder": "Title" }
 
-# Documentation:
-# @raycast.author tahsin
-# @raycast.authorURL https://raycast.com/tahsin
+import { runLogin, runNonLogin } from "./0";
 
-
-BASEDIR=$(dirname "$0")
-SCRIPT="get_git_branch_name.py"
-# shellcheck source=/dev/null
-. ~/.commonrc
-python3 -B "$BASEDIR"/../src/"$SCRIPT" "$@"
+await runLogin("get_git_branch_name.py");

@@ -2,4 +2,4 @@
 
 import { runLogin, runNonLogin } from "./0";
 
-await runNonLogin("audio_compress.py");
+await runLogin("spotify_ads_mute.py");

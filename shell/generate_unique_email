@@ -1,21 +1,16 @@
-#!/bin/sh
+#!/Users/mohammadtahsin/.bun/bin/bun
 
-# Required parameters:
-# @raycast.schemaVersion 1
-# @raycast.title Generate Unique Email
-# @raycast.mode fullOutput
+// Required parameters:
+// @raycast.schemaVersion 1
+// @raycast.title Generate Unique Email
+// @raycast.mode fullOutput
 
-# Optional parameters:
-# @raycast.icon 📥
-# @raycast.argument1 { "type": "text", "placeholder": "Your Name", "optional": true }
-# @raycast.argument2 { "type": "text", "placeholder": "Domain. maildrop.cc", "optional": true }
-# @raycast.packageName Developer Utils
+// Optional parameters:
+// @raycast.icon 📥
+// @raycast.argument1 { "type": "text", "placeholder": "Your Name", "optional": true }
+// @raycast.argument2 { "type": "text", "placeholder": "Domain. maildrop.cc", "optional": true }
+// @raycast.packageName Developer Utils
 
-# Documentation:
-# @raycast.description It will generate an unique email
-# @raycast.author tahsin
-# @raycast.authorURL https://raycast.com/tahsin
+import { runLogin, runNonLogin } from "./0";
 
-BASEDIR=$(dirname "$0")
-SCRIPT="generate_unique_email.py"
-python3 -B "$BASEDIR"/../src/"$SCRIPT" "$@"
+await runNonLogin("generate_unique_email.py");
