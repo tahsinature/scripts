@@ -1,5 +1,4 @@
 #!/Users/mohammadtahsin/.bun/bin/bun
-// @ts-nocheck
 
 import { $ } from "bun";
 import path from "path";
@@ -43,10 +42,10 @@ export const runNonLogin = async (fileName: string) => {
 const run = async (executor: string, fileName) => {
   const arg = getArgs();
   const { pyInterpreter, file } = getPaths(fileName);
-  let command = `${executor} ${pyInterpreter} -B ${file}`;
+  let command = `${executor} ${pyInterpreter} -uB ${file}`;
   if (arg) command = `${command} ${arg}`;
 
-  await $`bash -c "${command}"`.catch((error: any) => {
+  $`bash -c "${command}"`.catch((error: any) => {
     console.error(error.message);
   });
 };
