@@ -1,5 +1,3 @@
-#!/Users/mohammadtahsin/.bun/bin/bun
-
 import { $ } from "bun";
 import path from "path";
 
@@ -26,18 +24,18 @@ const getArgs = () => {
   return args.join(" ");
 };
 
-export const runLogin = async (fileName: string) => {
+export const runLogin = async (fileName: string, args?: string) => {
   const env = await $`sh -cl "source ~/.commonrc && bun -e 'console.log(JSON.stringify(process.env))'"`.json();
-  await run(fileName, env);
+  await run(fileName, args, env);
 };
 
-export const runNonLogin = async (fileName: string) => {
+export const runNonLogin = async (fileName: string, args?: string) => {
   const env = await $`sh -cl "bun -e 'console.log(JSON.stringify(process.env))'"`.json();
-  await run(fileName, env);
+  await run(fileName, args, env);
 };
 
-const run = async (fileName: string, env: Record<string, string> = {}) => {
-  const arg = getArgs();
+const run = async (fileName: string, args?: string, env: Record<string, string> = {}) => {
+  const arg = args || getArgs();
   const { pyInterpreter, file } = getPaths(fileName);
   let command = `${pyInterpreter} -uB ${file}`;
   if (arg) command = `${command} ${arg}`;
