@@ -4,12 +4,16 @@ from spotipy.oauth2 import SpotifyOAuth, SpotifyClientCredentials
 from time import sleep
 import signal
 import os
+import tempfile
 
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
 scopes = ['user-read-currently-playing']
 client_id = os.environ.get('SPOTIPY_CLIENT_ID')
 client_secret = os.environ.get('SPOTIPY_CLIENT_SECRET')
+temp_dir = tempfile.gettempdir()
+cache_path = os.path.join(temp_dir, '.cache')
+
 
 if not client_id or not client_secret:
     raise Exception('SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET must be set')
@@ -20,6 +24,7 @@ spotify = spotipy.Spotify(
         scope=' '.join(scopes),
         client_id=client_id,
         client_secret=client_secret,
+        cache_path=cache_path,
     ))
 
 
