@@ -1,4 +1,5 @@
 from typing import List
+from getpass import getuser
 
 
 def get_env_key_value(line: str):
@@ -43,3 +44,38 @@ passed: {lines}
 """)
 
     return env_vars
+
+
+def dict_to_env_semi_colon_seperated(dict: dict) -> str:
+    result = ""
+
+    for key, value in dict.items():
+        if (not key) or (not value):
+            continue
+        result += f"{key}={value}; "
+
+    return result.strip()
+
+
+def dict_to_aws_cred_file(dict: dict):
+    required_keys = [
+        "aws_access_key_id",
+        "aws_secret_access_key",
+        "aws_session_token",
+        "aws_metadata_user_arn",
+    ]
+
+    if not all(key in dict for key in required_keys):
+        print(f"missing required keys: {required_keys}")
+        return
+
+    content = f"""[default]
+aws_access_key_id={dict["aws_access_key_id"]}
+aws_secret_access_key={dict["aws_secret_access_key"]}
+aws_session_token={dict["aws_session_token"]}
+aws_metadata_user_arn={dict["aws_metadata_user_arn"]}
+"""
+    file_path = f"/Users/{getuser()}/.aws/credentials"
+
+    with open(file_path, "w") as f:
+        f.write(content)
