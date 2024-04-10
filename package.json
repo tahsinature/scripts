@@ -3,7 +3,8 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "test": "python3 -Bm unittest"
+    "test": "bun -e 'await require(`.`).test()'",
+    "check": "bun -e 'await require(`.`).checkDependencies()'"
   },
   "devDependencies": {
     "@types/bun": "latest"
