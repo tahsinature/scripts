@@ -1,6 +1,6 @@
 import spotipy
 import osascript
-from spotipy.oauth2 import SpotifyOAuth, SpotifyClientCredentials
+from spotipy.oauth2 import SpotifyOAuth
 from time import sleep
 import signal
 import os
