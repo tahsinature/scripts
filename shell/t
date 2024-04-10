@@ -11,4 +11,4 @@
 
 import { runLogin, runNonLogin } from "./0";
 
-await runNonLogin("t.py");
+await runLogin("t.py");
