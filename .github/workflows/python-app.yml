@@ -19,14 +19,18 @@ jobs:
       - name: Set up Bun
         uses: oven-sh/setup-bun@v1
 
-      - name: Check Bun
+      - name: Check Runtime
         run: |
           bun --version
-          echo "Bun is ready to use"
+          python3 --version
 
-      # - name: Install dependencies
-      #   run: |
-      #     pip3 install -r requirements.txt
-      # - name: Test with make test
-      #   run: |
-      #     bun run Test
+      - name: Install dependencies
+        run: |
+          bun install
+          python3 -m venv .venv
+          source .venv/bin/activate
+          pip3 install -r requirements.txt
+
+      - name: Test
+        run: |
+          bun run test
