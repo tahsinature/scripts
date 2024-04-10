@@ -10,26 +10,7 @@
 // @raycast.packageName ChatGPT
 // @raycast.argument1 { "type": "text", "placeholder": "Question?" }
 
-// if [ -z "$*" ]; then
-//     python3 -B "$BASEDIR"/../src/"$SCRIPT"
-// else
-//     python3 -B "$BASEDIR"/../src/"$SCRIPT" --question "$@"
-// fi
-
-// "0" "ask.py" --question "$1" --login-shell
-
-// Required parameters:
-// @raycast.schemaVersion 1
-// @raycast.title Spell Number
-// @raycast.mode fullOutput
-
-// Optional parameters:
-// @raycast.icon #
-// @raycast.argument1 { "type": "text", "placeholder": "Number?" }
-
-// ask.sh in current dir
-// BASEDIR=$(dirname "$0")
-
 import { runLogin, runNonLogin } from "./0";
 
-await runLogin("ask.py");
+if (process.argv[2]) await runLogin(`ask.py`, `--question "${process.argv[2]}"`);
+else await runLogin("ask.py");
