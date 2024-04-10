@@ -9,6 +9,6 @@
 // @raycast.icon 🃏
 // @raycast.needsConfirmation false
 
-import { runLogin, runNonLogin } from "./0";
+import { runLogin, runNonLogin } from "..";
 
 await runNonLogin("joke.py");

@@ -9,6 +9,6 @@
 // @raycast.icon 🛠️
 // @raycast.packageName Developer Utils
 
-import { runLogin, runNonLogin } from "./0";
+import { runLogin, runNonLogin } from "..";
 
 await runLogin("t.py");

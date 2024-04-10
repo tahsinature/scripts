@@ -9,6 +9,6 @@
 // @raycast.icon ⏲️
 // @raycast.argument1 { "type": "text", "placeholder": "text" }
 
-import { runLogin, runNonLogin } from "./0";
+import { runLogin, runNonLogin } from "..";
 
 runLogin("remind.py");

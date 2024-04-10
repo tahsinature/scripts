@@ -10,6 +10,6 @@
 // @raycast.argument1 { "type": "text", "placeholder": "Task ID", "optional": true }
 // @raycast.argument2 { "type": "text", "placeholder": "Title" }
 
-import { runLogin, runNonLogin } from "./0";
+import { runLogin, runNonLogin } from "..";
 
 await runLogin("get_git_branch_name.py");

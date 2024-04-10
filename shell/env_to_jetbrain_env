@@ -10,5 +10,5 @@
 // @raycast.packageName Env to Jetbrain env
 // @raycast.argument1 { "type": "text", "placeholder": "String" }
 
-import { runLogin, runNonLogin } from "./0";
+import { runLogin, runNonLogin } from "..";
 await runNonLogin("env_to_jetbrain_env.py");

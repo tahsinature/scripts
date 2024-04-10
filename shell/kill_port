@@ -9,5 +9,5 @@
 // @raycast.icon 🔫
 // @raycast.argument1 { "type": "text", "placeholder": "Port number" }
 
-import { runLogin, runNonLogin } from "./0";
+import { runLogin, runNonLogin } from "..";
 await runNonLogin("kill_process_by_port.py");

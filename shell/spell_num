@@ -12,6 +12,6 @@
 // ask.sh in current dir
 // BASEDIR=$(dirname "$0")
 
-import { runLogin, runNonLogin } from "./0";
+import { runLogin, runNonLogin } from "..";
 
 await runNonLogin("spell_num.py");

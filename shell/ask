@@ -10,7 +10,7 @@
 // @raycast.packageName ChatGPT
 // @raycast.argument1 { "type": "text", "placeholder": "Question?" }
 
-import { runLogin, runNonLogin } from "./0";
+import { runLogin, runNonLogin } from "..";
 
 if (process.argv[2]) await runLogin(`ask.py`, `--question "${process.argv[2]}"`);
 else await runLogin("ask.py");
