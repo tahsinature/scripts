@@ -3,11 +3,6 @@
 import { $ } from "bun";
 import path from "path";
 
-const executors = {
-  login: path.join(__dirname, "0-login"),
-  nonLogin: path.join(__dirname, "0-non-login"),
-};
-
 const getPaths = (fileName: string) => {
   return {
     pyInterpreter: path.join(__dirname, "..", ".venv", "bin", "python3"),
@@ -32,20 +27,21 @@ const getArgs = () => {
 };
 
 export const runLogin = async (fileName: string) => {
-  run(executors.login, fileName);
+  const env = await $`bash -c "source ~/.commonrc && /Users/mohammadtahsin/.bun/bin/bun -e 'console.log(JSON.stringify(process.env))'"`.json();
+  await run(fileName, env);
 };
 
 export const runNonLogin = async (fileName: string) => {
-  run(executors.nonLogin, fileName);
+  await run(fileName);
 };
 
-const run = async (executor: string, fileName) => {
+const run = async (fileName: string, env: Record<string, string> = {}) => {
   const arg = getArgs();
   const { pyInterpreter, file } = getPaths(fileName);
-  let command = `${executor} ${pyInterpreter} -uB ${file}`;
+  let command = `${pyInterpreter} -uB ${file}`;
   if (arg) command = `${command} ${arg}`;
 
-  $`bash -c "${command}"`.catch((error: any) => {
+  $`bash -c "${command}"`.env(env).catch((error: any) => {
     console.error(error.message);
   });
 };
