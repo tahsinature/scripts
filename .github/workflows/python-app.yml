@@ -22,9 +22,9 @@ jobs:
       - name: Check Bun
         run: bun --version
 
-      # - name: Install dependencies
-      #   run: |
-      #     pip3 install -r requirements.txt
-      # - name: Test with make test
-      #   run: |
-      #     make test
+      - name: Install dependencies
+        run: |
+          pip3 install -r requirements.txt
+      - name: Test with make test
+        run: |
+          bun run test
