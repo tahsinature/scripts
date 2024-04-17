@@ -7,6 +7,9 @@ This is a repository containing collection of scripts that I have written to aut
 ```bash
 ❯ python3 --version
 Python 3.11.7
+
+❯ bun --version
+1.1.4
 ```
 
 ## Useful Commands
