@@ -4,9 +4,9 @@ import time
 
 
 @click.command()
-@click.option('--count', type=int, required=True)
-@click.option('--command', type=str, required=True)
-@click.option('--wait', type=int, default=0)
+@click.argument('count', type=int, required=True)
+@click.argument('command', type=str, required=True)
+@click.argument('wait', type=int, default=0)
 def main(count: int, command: str, wait: int):
     for i in range(count):
         run_terminal_command_live(command, shell=True)
