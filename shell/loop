@@ -7,17 +7,10 @@
 
 // Optional parameters:
 // @raycast.icon 🔁
-// @raycast.argument1 { "type": "text", "placeholder": "command" }
-// @raycast.argument2 { "type": "text", "placeholder": "count" }
+// @raycast.argument1 { "type": "text", "placeholder": "count" }
+// @raycast.argument2 { "type": "text", "placeholder": "command" }
 // @raycast.argument3 { "type": "text", "placeholder": "wait interval", "optional": true }
 
-import { runNonLogin } from "..";
+import { runLogin } from "..";
 
-const command = process.argv[2];
-const count = process.argv[3];
-const waitInterval = process.argv[4];
-
-let options = `--command="${command}" --count=${count}`;
-if (waitInterval) options += ` --wait=${waitInterval}`;
-
-await runNonLogin("loop.py", options);
+await runLogin("loop.py");
