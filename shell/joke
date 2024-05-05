@@ -9,6 +9,6 @@
 // @raycast.icon 🃏
 // @raycast.needsConfirmation false
 
-import { run2 } from "..";
+import { run } from "..";
 
-await run2("python", { fileName: "joke" });
+await run("python", { fileName: "joke" });

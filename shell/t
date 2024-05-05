@@ -9,6 +9,6 @@
 // @raycast.icon 🛠️
 // @raycast.packageName Developer Utils
 
-import { run2 } from "..";
+import { run } from "..";
 
-await run2("go", { fileName: "app", preExecScript: ["SOURCE_COMMONRC"] });
+await run("go", { fileName: "app", preExecScript: ["SOURCE_COMMONRC"] });

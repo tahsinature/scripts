@@ -10,7 +10,7 @@
 // @raycast.packageName ChatGPT
 // @raycast.argument1 { "type": "text", "placeholder": "Question?" }
 
-import { run2 } from "..";
+import { run } from "..";
 
-if (process.argv[2]) await run2("python", { args: `--question "${process.argv[2]}"`, fileName: "ask", preExecScript: ["SOURCE_COMMONRC"] });
-else await run2("python", { fileName: "ask", preExecScript: ["SOURCE_COMMONRC"] });
+if (process.argv[2]) await run("python", { args: `--question "${process.argv[2]}"`, fileName: "ask", preExecScript: ["SOURCE_COMMONRC"] });
+else await run("python", { fileName: "ask", preExecScript: ["SOURCE_COMMONRC"] });

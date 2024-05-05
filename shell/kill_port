@@ -9,5 +9,5 @@
 // @raycast.icon 🔫
 // @raycast.argument1 { "type": "text", "placeholder": "Port number" }
 
-import { run2 } from "..";
-await run2("python", { fileName: "kill_process_by_port" });
+import { run } from "..";
+await run("python", { fileName: "kill_process_by_port" });

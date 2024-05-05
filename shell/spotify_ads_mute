@@ -1,5 +1,5 @@
 #!/usr/bin/env bun
 
-import { run2 } from "..";
+import { run } from "..";
 
-await run2("python", { fileName: "spotify_ads_mute" });
+await run("python", { fileName: "spotify_ads_mute" });

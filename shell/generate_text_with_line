@@ -10,6 +10,6 @@
 // @raycast.argument1 { "type": "text", "placeholder": "How many times?" }
 // @raycast.argument2 { "type": "text", "placeholder": "What text?" }
 
-import { run2 } from "..";
+import { run } from "..";
 
-await run2("python", { fileName: "generate_text_with_line" });
+await run("python", { fileName: "generate_text_with_line" });

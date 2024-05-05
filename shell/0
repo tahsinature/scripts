@@ -1,0 +1,3 @@
+#!/bin/sh
+
+curl -s -L 'http://localhost:8080/health?forceUpdate=true' | jq -c .

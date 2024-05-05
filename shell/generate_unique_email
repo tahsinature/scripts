@@ -11,6 +11,6 @@
 // @raycast.argument2 { "type": "text", "placeholder": "Domain. maildrop.cc", "optional": true }
 // @raycast.packageName Developer Utils
 
-import { run2 } from "..";
+import { run } from "..";
 
-await run2("python", { fileName: "generate_unique_email" });
+await run("python", { fileName: "generate_unique_email" });

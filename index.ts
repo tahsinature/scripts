@@ -48,7 +48,7 @@ const runnerMap: Record<Runner, { runScript: string; fileExt: string; srcDir: st
   go: { runScript: "go run", fileExt: ".go", srcDir: "go" },
 };
 
-export const run2 = async (runner: Runner, { fileName, args, preExecScript = [] }: { fileName: string; args?: string; preExecScript?: (keyof typeof execMap)[] }) => {
+export const run = async (runner: Runner, { fileName, args, preExecScript = [] }: { fileName: string; args?: string; preExecScript?: (keyof typeof execMap)[] }) => {
   if (!runnerMap[runner]) throw new Error(`Runner ${runner} not found`);
 
   const arg = args || getArgs();

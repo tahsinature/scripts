@@ -10,6 +10,6 @@
 // @raycast.argument1 { "type": "text", "placeholder": "Task ID", "optional": true }
 // @raycast.argument2 { "type": "text", "placeholder": "Title" }
 
-import { run2 } from "..";
+import { run } from "..";
 
-await run2("python", { fileName: "get_git_branch_name" });
+await run("python", { fileName: "get_git_branch_name" });
