@@ -36,31 +36,6 @@ const getArgs = () => {
   return args.join(" ");
 };
 
-export const runLogin = async (fileName: string, args?: string) => {
-  const env = await $`sh -cl "source ~/.commonrc && bun -e 'console.log(JSON.stringify(process.env))'"`.json();
-  await run(fileName, args, env);
-};
-
-export const runNonLogin = async (fileName: string, args?: string) => {
-  const env = await $`sh -cl "bun -e 'console.log(JSON.stringify(process.env))'"`.json();
-  await run(fileName, args, env);
-};
-
-// export const runFoo = async (runner: Runner, { fileName, args, env }: { fileName: string; args?: string; env?: Record<string, string> }) => {
-//   run2(runner, fileName, args, env);
-// };
-
-const run = async (fileName: string, args?: string, env: Record<string, string> = {}) => {
-  const arg = args || getArgs();
-  const file = path.join(__dirname, "src", fileName);
-  let command = `${pyInterpreter} -uB ${file}`;
-  if (arg) command = `${command} ${arg}`;
-
-  $`sh -c "${command}"`.env(env).catch((error: any) => {
-    console.error(error.message);
-  });
-};
-
 const execMap = {
   SOURCE_COMMONRC: "source ~/.commonrc",
 };
