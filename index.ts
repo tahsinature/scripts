@@ -17,7 +17,7 @@ export const checkDependencies = async () => {
   console.log("System Python:", systemPython);
   console.log("Venv Python:", venvPython);
 
-  await $`which node && which bun && which gum && which python3 && which fzf`;
+  await $`which node && which bun && which gum && which python3 && which fzf && which go`;
 };
 
 // [ "--question", "test" ] => "--question test"
