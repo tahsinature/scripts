@@ -1,5 +1,5 @@
 import unittest
-from src.generate_unique_email import exec
+from src.python.generate_unique_email import exec
 
 
 class TestStringMethods(unittest.TestCase):

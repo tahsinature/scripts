@@ -1,5 +1,5 @@
 import unittest
-from src.utilities.text import get_env_key_value, get_env_vars_from_lines
+from src.python.utilities.text import get_env_key_value, get_env_vars_from_lines
 
 
 class TestURLUtility(unittest.TestCase):

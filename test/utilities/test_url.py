@@ -1,5 +1,5 @@
 import unittest
-from src.utilities.url import is_valid_url
+from src.python.utilities.url import is_valid_url
 
 
 class TestURLUtility(unittest.TestCase):

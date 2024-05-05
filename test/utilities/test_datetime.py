@@ -2,7 +2,7 @@ import datetime
 import unittest
 import pytz
 
-from src.utilities.datetime import calculate_time
+from src.python.utilities.datetime import calculate_time
 
 
 class TestBasic(unittest.TestCase):
