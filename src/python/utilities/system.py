@@ -1,4 +1,5 @@
 import subprocess
+from typing import AnyStr
 
 
 def run_terminal_command(command: str, shell: bool = False) -> str:
@@ -12,14 +13,13 @@ def run_terminal_command(command: str, shell: bool = False) -> str:
 
 
 def run_terminal_command_live(command: str, shell: bool = False):
-    process = subprocess.Popen(command, shell=shell, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    process = subprocess.Popen(command, shell=shell, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True)
 
     while True and process.stdout:
-        output = process.stdout.readline().decode("utf-8").strip()
+        output = process.stdout.readline()
         if output == '' and process.poll() is not None:
             break
-        if output:
-            print(output)
+        if output.strip():
+            print(output.strip())
 
-    rc = process.poll()
-    return rc
+    return process.poll()

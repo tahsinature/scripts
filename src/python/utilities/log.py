@@ -2,19 +2,17 @@ import logging
 from os import path
 from typing import List
 from utilities.config import log_dir
+from rich.markdown import Markdown
+from rich.console import Console
+from rich.panel import Panel
 
 
 def display_code_via_panel(code: str):
-    from rich.panel import Panel
-    from rich.console import Console
-
     console = Console()
     console.print(Panel(code, title="Content"))
 
 
 def display_markdown(markdown: str):
-    from rich.markdown import Markdown
-    from rich.console import Console
 
     console = Console()
     console.print(Markdown(markdown))

@@ -1,10 +1,8 @@
-#!/bin/env python3
-
 from datetime import timedelta
-from utilities.datetime import try_to_parse_date_or_time
 import click
 import json
 
+from utilities.datetime import try_to_parse_date_or_time
 from utilities.prompt import ask_confirmation
 from utilities.system import run_terminal_command
 
@@ -70,7 +68,7 @@ def main():
         command = f"""reminders add "{reminder_list}" "{title}" --due-date "{six_hours_before}\""""
         commands.append(command)
 
-    sure = ask_confirmation("Do you want to continue?")
+    sure = ask_confirmation(message="Do you want to continue?")
     if sure:
         for command in commands:
             output = run_terminal_command(command, shell=True)

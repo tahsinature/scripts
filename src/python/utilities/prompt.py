@@ -1,5 +1,4 @@
 import subprocess
-from turtle import st
 from typing import List, Optional
 from rich import prompt
 
@@ -14,11 +13,9 @@ def select_path(path: str):
     return output
 
 
-def select_from_list(choices: list[str], limit: Optional[int] = None, clear_screen: bool = False):
+def select_from_list(choices: list[str], limit: Optional[int] = None):
     new_line_seperated_choices = "\n".join(choices)
     choose_or_filter = "choose"
-    if clear_screen:
-        choose_or_filter = "filter"
 
     limit_flag = "--no-limit"
     if limit:
@@ -36,6 +33,17 @@ def select_from_list(choices: list[str], limit: Optional[int] = None, clear_scre
     return list(filter(lambda p: p and p.strip(), output.split("\n")))
 
 
+def select_fuzzy_from_list(choices: list[str], limit: Optional[int] = None):
+    new_line_seperated_choices = "\n".join(choices)
+    command = f"""echo '{new_line_seperated_choices}' | fzf --multi"""
+    process = subprocess.Popen(command,
+                               shell=True,
+                               stdout=subprocess.PIPE,)
+
+    stdout, stderr = process.communicate()
+    return list(filter(lambda p: p and p.strip(), stdout.decode("utf-8").strip().split("\n")))
+
+
 def exit_with_message(message: str):
     command = f"""gum style --border normal --margin '1' --padding '1 2' --border-foreground 212 "{message}\""""
     subprocess.run(command,
@@ -51,6 +59,7 @@ def ask_number(message: str):
             exit_with_message("You didn't enter a number")
 
 
+# Todo: take extension as an argument
 def ask_file(path: str, program: Optional[str] = None):
     selected_program = program
     output = ""
@@ -66,7 +75,7 @@ def ask_file(path: str, program: Optional[str] = None):
         stdout, stderr = process.communicate()
         output = stdout.decode("utf-8").strip()
     elif selected_program == "fd | fzf":
-        command = f"fd . {path} -d 1 -e mp3 -e ogg | fzf --multi"
+        command = f"fd . {path} -d 1 -e mp3 -e ogg -e m4a | fzf --multi"
         process = subprocess.Popen(command,
                                    shell=True,
                                    stdout=subprocess.PIPE,)
