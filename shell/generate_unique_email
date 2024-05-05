@@ -11,6 +11,6 @@
 // @raycast.argument2 { "type": "text", "placeholder": "Domain. maildrop.cc", "optional": true }
 // @raycast.packageName Developer Utils
 
-import { runLogin, runNonLogin } from "..";
+import { run2 } from "..";
 
-await runNonLogin("generate_unique_email.py");
+await run2("python", { fileName: "generate_unique_email" });

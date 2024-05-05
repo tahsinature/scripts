@@ -1,5 +1,5 @@
 #!/usr/bin/env bun
 
-import { runLogin, runNonLogin } from "..";
+import { run2 } from "..";
 
-await runLogin("spotify_ads_mute.py");
+await run2("python", { fileName: "spotify_ads_mute" });

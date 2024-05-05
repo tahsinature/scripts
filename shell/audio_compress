@@ -1,5 +1,5 @@
 #!/usr/bin/env bun
 
-import { runLogin, runNonLogin } from "..";
+import { run2 } from "..";
 
-await runNonLogin("audio_compress.py");
+await run2("python", { fileName: "audio_compress" });

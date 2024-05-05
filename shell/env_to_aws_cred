@@ -9,6 +9,6 @@
 // @raycast.needsConfirmation false
 // @raycast.argument1 { "type": "text", "placeholder": "String" }
 
-import { runLogin, runNonLogin } from "..";
+import { run2 } from "..";
 
-await runNonLogin("env_to_aws_cred.py");
+await run2("python", { fileName: "env_to_aws_cred" });

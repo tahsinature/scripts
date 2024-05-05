@@ -1,5 +1,5 @@
 #!/usr/bin/env bun
 
-import { runNonLogin } from "..";
+import { run2 } from "..";
 
-await runNonLogin("watch.py");
+await run2("python", { fileName: "watch" });

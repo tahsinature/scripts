@@ -9,6 +9,6 @@
 // @raycast.icon 🃏
 // @raycast.needsConfirmation false
 
-import { runLogin, runNonLogin } from "..";
+import { run2 } from "..";
 
-await runNonLogin("joke.py");
+await run2("python", { fileName: "joke" });

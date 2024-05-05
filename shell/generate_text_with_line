@@ -10,6 +10,6 @@
 // @raycast.argument1 { "type": "text", "placeholder": "How many times?" }
 // @raycast.argument2 { "type": "text", "placeholder": "What text?" }
 
-import { runLogin, runNonLogin } from "..";
+import { run2 } from "..";
 
-await runNonLogin("generate_text_with_line.py");
+await run2("python", { fileName: "generate_text_with_line" });

@@ -11,6 +11,6 @@
 // @raycast.argument2 { "type": "text", "placeholder": "command" }
 // @raycast.argument3 { "type": "text", "placeholder": "wait interval", "optional": true }
 
-import { runLogin } from "..";
+import { run2 } from "..";
 
-await runLogin("loop.py");
+await run2("python", { fileName: "loop" });
