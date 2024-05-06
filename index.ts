@@ -37,7 +37,7 @@ const getArgs = () => {
 };
 
 const execMap = {
-  SOURCE_COMMONRC: "source ~/.commonrc",
+  SOURCE_COMMONRC: "source ~/.commonrc && source ~/.credrc",
 };
 
 type Runner = "python" | "bun" | "go";
