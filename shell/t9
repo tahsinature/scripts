@@ -1,0 +1,14 @@
+#!/usr/bin/env bun
+
+// Required parameters:
+// @raycast.schemaVersion 1
+// @raycast.title T9 Converter
+// @raycast.mode fullOutput
+
+// Optional parameters:
+// @raycast.icon #
+// @raycast.argument1 { "type": "text", "placeholder": "Word?" }
+
+import { run } from "..";
+
+await run("bun", { fileName: "t9", args: `--text ${process.argv[2]}` });
