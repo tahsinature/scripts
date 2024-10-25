@@ -7,9 +7,15 @@
     "check": "bun -e 'await require(`.`).checkDependencies()'"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/meow": "^6.0.0",
+    "@types/prompts": "^2.4.9"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "meow": "^13.2.0",
+    "prompts": "^2.4.2"
   }
 }

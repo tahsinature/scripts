@@ -44,7 +44,7 @@ type Runner = "python" | "bun" | "go";
 
 const runnerMap: Record<Runner, { runScript: string; fileExt: string; srcDir: string }> = {
   python: { runScript: `${pyInterpreter} -uB`, fileExt: ".py", srcDir: "python" },
-  bun: { runScript: "bun", fileExt: ".ts", srcDir: "src-ts" },
+  bun: { runScript: "bun", fileExt: ".ts", srcDir: "bun" },
   go: { runScript: "go run", fileExt: ".go", srcDir: "go" },
 };
 
